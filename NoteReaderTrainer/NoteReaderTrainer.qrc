@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/Sounds/Correct.wav</file>
+        <file>Resources/Sounds/Wrong.wav</file>
+    </qresource>
+</RCC>
