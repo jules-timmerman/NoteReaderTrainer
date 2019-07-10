@@ -15,7 +15,7 @@ class Game : public QWidget
 {
 
 public:
-	enum class Key {
+	enum Key {
 		SOL,
 		FA
 	};
@@ -23,7 +23,8 @@ public:
 	enum Difficulty {
 		EASY,
 		MEDIUM,
-		HARD
+		HARD,
+		CHAOS
 	};
 
 	Game(QWidget *parent = nullptr, Key key = Key::SOL, Difficulty difficulty = Difficulty::EASY, int numbers = 25);

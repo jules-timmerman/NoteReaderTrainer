@@ -2,6 +2,7 @@
 
 #include <QtWidgets>
 #include "Game.h"
+#include "Help.h"
 
 class Setup : public QWidget
 {
@@ -13,6 +14,7 @@ public:
 
 public slots:
 	void launch();
+	void help();
 
 
 
@@ -27,9 +29,13 @@ private:
 	QSpinBox* numbers;
 
 	// Buttons
+	QWidget* buttons;
+	QHBoxLayout* layoutButtons;
 	QPushButton *buttonGo;
-
+	QPushButton* buttonHelp;
 
 	Game* game;
+
+	Help* h;
 
 };

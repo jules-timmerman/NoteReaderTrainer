@@ -2,17 +2,14 @@
 
 #include "Staff.h"
 
-class SolStaff : public Staff
+class FaStaff : public Staff
 {
+
+
 public:
-	SolStaff(QWidget* parent);
+	FaStaff(QWidget* parent);
 
 	enum Note {
-		DO3,
-		SI2,
-		LA2,
-		SOL2,
-		FA2,
 		MI2,
 		RE2,
 		DO2,
@@ -24,10 +21,16 @@ public:
 		RE1,
 		DO1,
 		SI0,
-		LA0
+		LA0,
+		SOL0,
+		FA0,
+		MI0,
+		RE0,
+		DO0
 	};
-
 
 protected:
 	void paintEvent(QPaintEvent* event) override;
+
 };
+

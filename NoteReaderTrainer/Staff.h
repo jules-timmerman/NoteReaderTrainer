@@ -7,7 +7,6 @@ class Staff : public QWidget
 
 public:
 	Staff(QWidget* parent);
-	~Staff();
 
 	void setNotes(QList<int> list);
 

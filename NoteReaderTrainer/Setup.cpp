@@ -8,9 +8,8 @@ Setup::Setup()
 
 
 	// Setup Settings Widgets
-	layoutSettings = new QFormLayout(this);
-
 	settings = new QWidget(this);
+	layoutSettings = new QFormLayout(settings);
 	settings->setLayout(layoutSettings);
 	
 	key = new QComboBox(this);
@@ -19,8 +18,9 @@ Setup::Setup()
 
 	difficulty = new QComboBox(this);
 	difficulty->addItem("Easy");
-	difficulty->addItem("Medium");
-	difficulty->addItem("Hard");
+	difficulty->addItem("Medium (WIP)");
+	difficulty->addItem("Hard (WIP)");
+	difficulty->addItem("Chaos");
 
 	numbers = new QSpinBox(this);
 	numbers->setValue(25);
@@ -34,15 +34,26 @@ Setup::Setup()
 	
 	
 	
-	// Button
+	// Buttons
+	buttons = new QWidget(this);
+	layoutButtons = new QHBoxLayout(buttons);
+	buttons->setLayout(layoutButtons);
+
 	buttonGo = new QPushButton("GO!", this);
 	QObject::connect(buttonGo, SIGNAL(clicked()), this, SLOT(launch()));
+
+	buttonHelp = new QPushButton("Help", this);
+	QObject::connect(buttonHelp, SIGNAL(clicked()), this, SLOT(help()));
+
+	layoutButtons->addWidget(buttonGo);
+	layoutButtons->addWidget(buttonHelp);
+
 
 
 	// General Layout
 	layout = new QVBoxLayout(this);
 	layout->addWidget(settings);
-	layout->addWidget(buttonGo);
+	layout->addWidget(buttons);
 
 	setLayout(layout);
 
@@ -51,13 +62,21 @@ Setup::Setup()
 
 
 void Setup::launch() {
+	Game::Key k = (Game::Key)key->currentIndex();
+	Game::Difficulty d = (Game::Difficulty)difficulty->currentIndex();
+	int i = numbers->value();
 	
-	game = new Game(nullptr);
+	game = new Game(nullptr, k, d, i);
 	game->show();
 	this->hide();
+}
+
+void Setup::help() {
+	h = new Help();
 }
 
 Setup::~Setup()
 {
 	delete game;
+	delete h;
 }

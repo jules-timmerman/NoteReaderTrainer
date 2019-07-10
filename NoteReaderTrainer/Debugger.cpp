@@ -28,7 +28,3 @@ void Debugger::appendToAll(double d) {
 void Debugger::appendToAll(int i) {
 	Debugger::appendToAll(QString::number(i));
 }
-
-Debugger::~Debugger() {
-
-}

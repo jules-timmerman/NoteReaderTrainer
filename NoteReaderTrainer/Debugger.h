@@ -7,7 +7,6 @@ class Debugger : QTextEdit
 
 public:
 	Debugger();
-	~Debugger();
 
 	static void appendToAll(QString text);
 	static void appendToAll(double d);

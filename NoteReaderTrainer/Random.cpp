@@ -7,10 +7,6 @@ Random::Random(int d)
 
 }
 
-Random::~Random() {
-
-}
-
 QList<int> Random::generate(QList<int> current, int count) {
 
 	QRandomGenerator *generator = QRandomGenerator::global();
@@ -25,7 +21,7 @@ QList<int> Random::generate(QList<int> current, int count) {
 		// On rappelle que Haut = - et Bas = + (From top to bottom)
 		switch (diff)
 		{
-		case 0:
+		case 0: // EASY
 
 			// 20% staying the same notes
 			if (0 <= r && r < 20) {		
@@ -57,6 +53,10 @@ QList<int> Random::generate(QList<int> current, int count) {
 		case 1:
 			break;
 		case 2:
+			break;
+		case 3:	// CHAOS
+			r = generator->bounded(17);
+			list << r;
 			break;
 		default:
 			break;

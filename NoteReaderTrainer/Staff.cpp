@@ -6,11 +6,6 @@ Staff::Staff(QWidget* parent)
 
 }
 
-Staff::~Staff()
-{
-
-}
-
 
 void Staff::setNotes(QList<int> list)
 {

@@ -63,7 +63,9 @@ Game::~Game() {
 // Only Function to Redo for CHORD Support
 void Game::keyPressEvent(QKeyEvent* event) {
 	Qt::Key k = (Qt::Key)event->key();
+	
 	// Especially here
+	// Use a for loop and an array for noteKey
 	int note = currentNotes[0];
 	Qt::Key noteKey;
 	
@@ -84,7 +86,20 @@ void Game::keyPressEvent(QKeyEvent* event) {
 			noteKey = validKeys[3];
 	}
 	else { // CLE DE FA
-
+		if (note == 0 || note == 7 || note == 14) // MI
+			noteKey = validKeys[4];
+		if (note == 1 || note == 8 || note == 15) // RE
+			noteKey = validKeys[3];
+		if (note == 2 || note == 9 || note == 16) // DO
+			noteKey = validKeys[2];
+		if (note == 3 || note == 10)	// SI
+			noteKey = validKeys[1];
+		if (note == 4 || note == 11)	// LA
+			noteKey = validKeys[0];
+		if (note == 5 || note == 12)	// SOL
+			noteKey = validKeys[6];
+		if (note == 6 || note == 13)	// FA
+			noteKey = validKeys[5];
 	}
 
 	if (validKeys.contains(k)) { // If a valid key is press
